@@ -2,5 +2,15 @@
 
 
 {% block content %}
-	hello world
+	{% if messages %}
+	{% for messages in messages%}
+		<div class="alert alert-warning alert-dismissable" roles="alert">
+			<button class="close" data-dismiss="alert">
+				<small><sup></sup></small>
+			</button>
+			{{ message }}
+		</div>
+		{% endFor %}
+	{% endif %}
+
 {% endblock %}
