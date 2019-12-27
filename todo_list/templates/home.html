@@ -18,7 +18,8 @@
 		{% for things in all_items %}
 				<tr>
 					<td>{{things.item}} </td>
-					<td>{{things.completed}}</td>
+					<td><center>{{things.completed}}</center></td>
+					<td><center><a href="{% url 'delete' things.id %}">Delete</a></center></td>
 				</tr>
 		{% endfor %}
 		</table>

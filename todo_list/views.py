@@ -16,3 +16,9 @@ def home(request):
 	else:
 		all_items = List.objects.all
 		return render(request, 'home.html', {'all_items': all_items})
+
+def delete(request, list_id):
+	item = List.objects.get(pk=list_id)
+	item.delete()
+	messages.success(request, ('Item has been deleted'))
+	return redirect('home')
