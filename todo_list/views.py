@@ -22,3 +22,15 @@ def delete(request, list_id):
 	item.delete()
 	messages.success(request, ('Item has been deleted'))
 	return redirect('home')
+
+def crossOffList(request,list_id):
+	item = List.objects.get(pk=list_id)
+	item.completed = True
+	item.save()
+	return redirect('home')
+
+def uncrossOffList(request,list_id):
+	item = List.objects.get(pk=list_id)
+	item.completed = False
+	item.save()
+	return redirect('home')
