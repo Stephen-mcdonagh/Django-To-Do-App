@@ -18,8 +18,6 @@ def home(request):
 		return render(request, 'home.html', {'all_items': all_items})
 
 def delete(request, list_id):
-	import django
-	print(django.get_version())
 	item = List.objects.get(pk=list_id)
 	item.delete()
 	messages.success(request, ('Item has been deleted'))
